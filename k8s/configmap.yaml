@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rate-limiter-config
+  namespace: rate-limiter
+data:
+  RATE_LIMIT_CAPACITY: "100"
+  RATE_LIMIT_WINDOW_SECONDS: "60"
+  SPRING_DATA_REDIS_HOST: "redis"
+  TRUST_FORWARDED_FOR: "false"

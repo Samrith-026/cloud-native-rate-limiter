@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rate-limiter
+  namespace: rate-limiter
+automountServiceAccountToken: false
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: rate-limiter-read-config
+  namespace: rate-limiter
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    resourceNames: ["rate-limiter-config"]
+    verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rate-limiter-read-config
+  namespace: rate-limiter
+subjects:
+  - kind: ServiceAccount
+    name: rate-limiter
+    namespace: rate-limiter
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: rate-limiter-read-config

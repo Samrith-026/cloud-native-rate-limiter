@@ -1,0 +1,10 @@
+target/
+.m2-cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
