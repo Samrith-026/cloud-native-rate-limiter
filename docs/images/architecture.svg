@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud-native rate limiter architecture</title>
+  <desc id="desc">API requests pass through a Spring Boot rate-limit filter that uses hashed client keys and an atomic Redis Lua script. Accepted requests reach the API; rejected requests receive HTTP 429. Prometheus scrapes service metrics.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7790aa"/></marker>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#111d2b"/><stop offset="1" stop-color="#0b1420"/></linearGradient>
+    <style>text{font-family:Arial,sans-serif}.box{fill:#17283a;stroke:#35506b;stroke-width:2}.green{fill:#15352f;stroke:#39bd9a}.blue{fill:#152c44;stroke:#4a8bd0}.orange{fill:#3a2d20;stroke:#d4a35e}.label{fill:#eff5fb;font-size:22px;font-weight:700}.small{fill:#a7b8ca;font-size:15px}.path{fill:none;stroke:#7790aa;stroke-width:3;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1200" height="650" rx="28" fill="url(#bg)"/>
+  <text x="58" y="64" fill="#f5f8fc" font-size="28" font-weight="700">CLOUD-NATIVE RATE LIMITER</text>
+  <text x="58" y="94" fill="#9fb0c3" font-size="15">Atomic distributed limits · observable decisions · Kubernetes-ready deployment</text>
+  <rect class="box blue" x="55" y="225" width="175" height="116" rx="16"/><text class="label" x="142" y="275" text-anchor="middle">API client</text><text class="small" x="142" y="307" text-anchor="middle">X-API-Key</text>
+  <rect class="box" x="300" y="205" width="245" height="156" rx="16"/><text class="label" x="422" y="255" text-anchor="middle">Spring Boot</text><text class="small" x="422" y="285" text-anchor="middle">rate-limit filter</text><text class="small" x="422" y="315" text-anchor="middle">SHA-256 client key</text>
+  <rect class="box orange" x="620" y="205" width="240" height="156" rx="16"/><text class="label" x="740" y="255" text-anchor="middle">Redis</text><text class="small" x="740" y="285" text-anchor="middle">atomic Lua increment</text><text class="small" x="740" y="315" text-anchor="middle">shared fixed window</text>
+  <path class="path" d="M230 283H293"/><path class="path" d="M545 283H613"/>
+  <path class="path" d="M860 250C915 250 920 190 975 190"/><path class="path" d="M860 318C915 318 920 410 975 410"/>
+  <rect class="box green" x="975" y="138" width="175" height="105" rx="16"/><text class="label" x="1062" y="182" text-anchor="middle">Allowed</text><text class="small" x="1062" y="212" text-anchor="middle">API response</text>
+  <rect class="box orange" x="975" y="358" width="175" height="105" rx="16"/><text class="label" x="1062" y="402" text-anchor="middle">Over quota</text><text class="small" x="1062" y="432" text-anchor="middle">HTTP 429 + retry</text>
+  <rect class="box" x="343" y="455" width="200" height="90" rx="15"/><text class="label" x="443" y="493" text-anchor="middle">Prometheus</text><text class="small" x="443" y="520" text-anchor="middle">decision counters</text>
+  <path d="M422 361V445" fill="none" stroke="#7790aa" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#arrow)"/>
+  <rect x="55" y="578" width="1095" height="38" rx="12" fill="#152639"/><text x="602" y="603" text-anchor="middle" fill="#adc0d2" font-size="14">Deployment: Docker image · Kubernetes probes · HPA · NetworkPolicy · non-root container</text>
+</svg>

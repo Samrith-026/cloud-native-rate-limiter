@@ -8,16 +8,7 @@ A production-minded Spring Boot service that protects `/api/**` with an atomic R
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    C[API client] --> S[Spring Boot service]
-    S --> F[Rate-limit filter]
-    F -->|atomic Lua script| R[(Redis)]
-    F -->|allowed| A[Protected API]
-    F -->|over quota| Q[HTTP 429]
-    S --> M[Prometheus metrics]
-    S --> L[Structured logs]
-```
+![Architecture preview: API client, Spring Boot filter, Redis Lua counter, allowed and rejected responses, Prometheus metrics, and Kubernetes deployment](docs/images/architecture.svg)
 
 Redis executes the increment and expiry as one Lua operation, so multiple service replicas share the same counters without a check-then-write race. Client identifiers are stored and logged as SHA-256 fingerprints rather than raw API keys or IP addresses.
 
