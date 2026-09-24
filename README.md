@@ -40,6 +40,23 @@ python scripts/load_test.py --requests 30 --concurrency 5
 
 The local policy permits 20 requests per 60-second window for each API key. A 30-request load test completed within one window should return 20 accepted responses and 10 `429` responses.
 
+### Actual local output
+
+With the documented `demo-user` key, the first 20 requests in the same window returned `200`; request 21 returned:
+
+```http
+HTTP/1.1 429
+RateLimit-Limit: 20
+RateLimit-Remaining: 0
+RateLimit-Reset: <seconds until reset>
+Retry-After: <seconds until retry>
+Content-Type: application/json
+
+{"error":"rate_limit_exceeded"}
+```
+
+The reset and retry values change with the time remaining in the current window.
+
 Stop the stack with `docker compose down`. Add `--volumes` when you also want to remove the local Redis data.
 
 ## Configuration
