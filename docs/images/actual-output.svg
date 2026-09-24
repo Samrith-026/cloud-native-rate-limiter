@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud-native rate limiter actual local output</title>
+  <desc id="desc">A local run with the synthetic demo-user key accepted requests one through twenty and returned HTTP 429 on request twenty-one.</desc>
+  <rect width="1200" height="690" rx="20" fill="#0b1115"/>
+  <rect x="1" y="1" width="1198" height="58" rx="19" fill="#182329"/>
+  <circle cx="30" cy="30" r="7" fill="#ff6b63"/><circle cx="54" cy="30" r="7" fill="#ffc04f"/><circle cx="78" cy="30" r="7" fill="#36c98f"/>
+  <text x="108" y="37" fill="#dbe6e8" font-family="Consolas,monospace" font-size="18">cloud-native-rate-limiter · local demo</text>
+  <text x="76" y="104" fill="#84a4aa" font-family="Consolas,monospace" font-size="15" letter-spacing="2">ACTUAL LOCAL OUTPUT · SYNTHETIC INPUT</text>
+  <text x="76" y="153" fill="#e1eaec" font-family="Consolas,monospace" font-size="18">$ curl -i -H "X-API-Key: demo-user" http://localhost:8080/api/demo</text>
+  <line x1="76" y1="183" x2="1124" y2="183" stroke="#314149" stroke-width="2"/>
+  <text x="76" y="229" fill="#f2a277" font-family="Consolas,monospace" font-size="25" font-weight="700">HTTP/1.1 429</text>
+  <text x="76" y="275" fill="#b9c8cc" font-family="Consolas,monospace" font-size="20">RateLimit-Limit: 20</text>
+  <text x="76" y="315" fill="#b9c8cc" font-family="Consolas,monospace" font-size="20">RateLimit-Remaining: 0</text>
+  <text x="76" y="355" fill="#b9c8cc" font-family="Consolas,monospace" font-size="20">RateLimit-Reset: &lt;seconds until reset&gt;</text>
+  <text x="76" y="395" fill="#b9c8cc" font-family="Consolas,monospace" font-size="20">Retry-After: &lt;seconds until retry&gt;</text>
+  <text x="76" y="435" fill="#b9c8cc" font-family="Consolas,monospace" font-size="20">Content-Type: application/json</text>
+  <rect x="76" y="475" width="1048" height="86" rx="10" fill="#121c20" stroke="#2a3b42"/>
+  <text x="101" y="529" fill="#9cdbb5" font-family="Consolas,monospace" font-size="22">{"error":"rate_limit_exceeded"}</text>
+  <text x="76" y="624" fill="#7f979d" font-family="Consolas,monospace" font-size="16">Requests 1–20: HTTP 200   ·   Request 21: HTTP 429</text>
+</svg>

@@ -42,6 +42,8 @@ The local policy permits 20 requests per 60-second window for each API key. A 30
 
 ### Actual local output
 
+![Image preview of the actual local rate-limit response using the synthetic demo-user key](docs/images/actual-output.svg)
+
 With the documented `demo-user` key, the first 20 requests in the same window returned `200`; request 21 returned:
 
 ```http
